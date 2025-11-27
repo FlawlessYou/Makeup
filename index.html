@@ -551,45 +551,37 @@
         });
 
         // --- 6. CONTACT FORM SUBMISSION ---
-        // When the user submits the enquiry form, build a mailto link to send
-        // an email to the site owner and show a confirmation message without
-        // navigating away. A hidden anchor is used to trigger the user's
-        // default mail client. After submission a thank‑you notification is
-        // displayed below the form.
+        // When the user submits the enquiry form, build a WhatsApp link to send
+        // the enquiry details directly via WhatsApp to the business number.
+        // The link is opened in a new tab/window so the current site remains open.
+        // A confirmation message is also shown on the page after submission.
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
-            // Create a hidden anchor for launching the email client
-            const emailLink = document.createElement('a');
-            emailLink.style.display = 'none';
-            document.body.appendChild(emailLink);
-            // Create an element for confirmation feedback
+            // Element for confirmation feedback
             const confirmation = document.createElement('p');
             confirmation.className = 'mt-4 text-brand-teal font-semibold';
             confirmation.style.display = 'none';
             contactForm.parentNode.appendChild(confirmation);
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                // Collect values
+                // Collect values from the form
                 const name = document.getElementById('contact-name').value.trim();
                 const date = document.getElementById('contact-date').value.trim();
                 const emailAddress = document.getElementById('contact-email').value.trim();
                 const message = document.getElementById('contact-message').value.trim();
-                // Construct email subject and body
-                let subject = 'New enquiry from Flawless You website';
-                let body = 'You have a new enquiry from your website.%0A%0A';
-                if (name) body += `Name: ${name}%0A`;
-                if (date) body += `Event Date: ${date}%0A`;
-                if (emailAddress) body += `Email: ${emailAddress}%0A`;
-                if (message) body += `Message: ${message}%0A`;
-                // Encode subject and body for a mailto URI
-                const mailtoLink = `mailto:pavarnamakeover@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                // Trigger the mail client via hidden link
-                emailLink.href = mailtoLink;
-                emailLink.click();
-                // Show a confirmation message to the user
-                confirmation.textContent = 'Thank you for your enquiry! We will be in touch shortly.';
+                // Construct the WhatsApp message text
+                let waText = 'New enquiry from Flawless You website.%0A%0A';
+                if (name) waText += `Name: ${name}%0A`;
+                if (date) waText += `Event Date: ${date}%0A`;
+                if (emailAddress) waText += `Email: ${emailAddress}%0A`;
+                if (message) waText += `Message: ${message}%0A`;
+                // Encode and open the WhatsApp API link in a new tab
+                const whatsappUrl = `https://wa.me/447771447915?text=${encodeURIComponent(waText)}`;
+                window.open(whatsappUrl, '_blank');
+                // Show a confirmation message to the user without leaving the page
+                confirmation.textContent = 'Thank you for your enquiry! We have received your message and will be in touch shortly.';
                 confirmation.style.display = 'block';
-                // Optionally clear the form fields
+                // Clear the form fields
                 contactForm.reset();
             });
         }
