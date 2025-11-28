@@ -113,6 +113,29 @@
             transition: transform 0.3s;
         }
         .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* Futuristic glow and fade-in effects */
+        .neon-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .neon-btn::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #00caff, #c858ff, #ff0080);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s, filter 0.3s;
+        }
+        .neon-btn:hover::before {
+            opacity: 0.5;
+            filter: blur(8px);
+        }
+        /* Sections start transparent and are animated into view */
+        .section-fade {
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -141,7 +164,7 @@
             <a href="#about" class="hover:text-brand-teal transition-colors hover-trigger">About</a>
             <a href="#services" class="hover:text-brand-teal transition-colors hover-trigger">Services</a>
             <a href="#gallery" class="hover:text-brand-teal transition-colors hover-trigger">Gallery</a>
-            <a href="#contact" class="px-8 py-3 bg-brand-teal text-white rounded-sm hover:bg-brand-blue transition-all duration-300 hover-trigger magnetic-btn">Book Now</a>
+            <a href="#contact" class="neon-btn px-8 py-3 bg-brand-teal text-white rounded-sm hover:bg-brand-blue transition-all duration-300 hover-trigger magnetic-btn">Book Now</a>
         </div>
         <button id="menu-toggle" class="md:hidden text-brand-teal focus:outline-none"><i data-lucide="menu" class="w-8 h-8"></i></button>
 
@@ -151,7 +174,7 @@
             <a href="#services" class="text-brand-dark text-sm uppercase tracking-[0.2em] font-bold hover:text-brand-teal transition-colors">Services</a>
             <a href="#gallery" class="text-brand-dark text-sm uppercase tracking-[0.2em] font-bold hover:text-brand-teal transition-colors">Gallery</a>
             <a href="#contact" class="text-brand-dark text-sm uppercase tracking-[0.2em] font-bold hover:text-brand-teal transition-colors">Contact</a>
-            <a href="#contact" class="mt-4 inline-block px-6 py-3 bg-brand-teal text-white uppercase tracking-[0.2em] text-xs font-bold rounded-sm hover:bg-brand-blue transition-all duration-300">Book Now</a>
+            <a href="#contact" class="neon-btn mt-4 inline-block px-6 py-3 bg-brand-teal text-white uppercase tracking-[0.2em] text-xs font-bold rounded-sm hover:bg-brand-blue transition-all duration-300">Book Now</a>
         </div>
     </nav>
 
@@ -183,10 +206,10 @@
             </p>
 
             <div class="flex flex-col md:flex-row justify-center gap-6 reveal-text translate-y-full">
-                <a href="#contact" class="magnetic-btn px-10 py-4 bg-brand-teal text-white uppercase tracking-widest text-xs font-bold hover:bg-brand-blue transition-all duration-300 shadow-xl hover-trigger">
+                <a href="#contact" class="neon-btn magnetic-btn px-10 py-4 bg-brand-teal text-white uppercase tracking-widest text-xs font-bold hover:bg-brand-blue transition-all duration-300 shadow-xl hover-trigger">
                     Book Appointment
                 </a>
-                <a href="#gallery" class="magnetic-btn px-10 py-4 border border-white text-white hover:bg-white hover:text-brand-dark uppercase tracking-widest text-xs font-bold transition-all duration-300 hover-trigger backdrop-blur-sm">
+                <a href="#gallery" class="neon-btn magnetic-btn px-10 py-4 border border-white text-white hover:bg-white hover:text-brand-dark uppercase tracking-widest text-xs font-bold transition-all duration-300 hover-trigger backdrop-blur-sm">
                     View Gallery
                 </a>
             </div>
@@ -194,7 +217,7 @@
     </section>
 
     <!-- Transformation Slider -->
-    <section id="transformation" class="py-24 bg-white">
+    <section id="transformation" class="section-fade py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-brand-teal text-xs uppercase tracking-[0.3em] font-bold">The Magic Touch</span>
@@ -218,7 +241,7 @@
     </section>
 
     <!-- NEW SECTION: Premium Gallery -->
-    <section id="gallery" class="py-24 bg-brand-light">
+    <section id="gallery" class="section-fade py-24 bg-brand-light">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div>
@@ -383,7 +406,7 @@
     </section>
 
     <!-- Immersive Service Menu -->
-    <section id="services" class="py-32 bg-white relative overflow-hidden">
+    <section id="services" class="section-fade py-32 bg-white relative overflow-hidden">
         <!-- Background Layers -->
         <div class="service-bg-layer" id="bg-bridal" style="background-image: url('https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
         <div class="service-bg-layer" id="bg-party" style="background-image: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
@@ -434,7 +457,7 @@
     <!-- Wow Factor Section Removed -->
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-white">
+    <section id="contact" class="section-fade py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <span class="text-brand-teal text-xs uppercase tracking-[0.3em] font-bold">Availability</span>
             <h2 class="font-display text-5xl text-brand-dark mt-4 mb-12">Secure Your Date</h2>
@@ -461,7 +484,7 @@
                     </div>
                     <!-- Disable FormSubmit captcha to avoid extra step for users -->
                     <input type="hidden" name="_captcha" value="false">
-                    <button class="w-full py-4 bg-brand-dark text-white uppercase tracking-widest text-sm font-bold hover:bg-brand-teal transition-colors magnetic-btn">Send Inquiry</button>
+                    <button class="neon-btn w-full py-4 bg-brand-dark text-white uppercase tracking-widest text-sm font-bold hover:bg-brand-teal transition-colors magnetic-btn">Send Inquiry</button>
                 </form>
 
                 <div class="mt-12 flex flex-col md:flex-row justify-center gap-8 text-sm font-bold text-gray-600">
@@ -599,6 +622,23 @@
                 }
             });
         }
+
+        // --- 7. FUTURISTIC SCROLL ANIMATIONS ---
+        // Register the ScrollTrigger plugin and animate sections into view for a futuristic feel.
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.section-fade').forEach(section => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
     </script>
 </body>
 </html>
