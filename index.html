@@ -454,6 +454,66 @@
         </div>
     </section>
 
+    <!-- Personalized Look Finder Quiz -->
+    <section id="look-finder" class="section-fade py-24 bg-brand-light">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-brand-teal text-xs uppercase tracking-[0.3em] font-bold">Find Your Look</span>
+                <h2 class="font-display text-5xl md:text-6xl text-brand-dark mt-3">Personalized <span class="italic text-brand-teal">Makeup Quiz</span></h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Answer a few quick questions to discover a curated makeup style that suits your occasion, palette and vibe.</p>
+            </div>
+            <form id="look-form" class="space-y-8 max-w-3xl mx-auto bg-white p-8 border border-brand-teal/10 shadow-lg">
+                <!-- Event Type -->
+                <div class="flex flex-col">
+                    <label for="look-event" class="text-xs font-semibold text-brand-dark mb-2">What type of event are you preparing for?</label>
+                    <select id="look-event" class="bg-brand-light border border-gray-200 p-4 outline-none focus:border-brand-teal transition-colors font-medium" required>
+                        <option value="" disabled selected>Select an event</option>
+                        <option value="bridal">Wedding / Bridal</option>
+                        <option value="party">Party / Celebration</option>
+                        <option value="editorial">Photoshoot / Editorial</option>
+                        <option value="casual">Casual / Everyday</option>
+                    </select>
+                </div>
+                <!-- Palette Preference -->
+                <div class="flex flex-col">
+                    <label for="look-palette" class="text-xs font-semibold text-brand-dark mb-2">Which colour palette appeals to you?</label>
+                    <select id="look-palette" class="bg-brand-light border border-gray-200 p-4 outline-none focus:border-brand-teal transition-colors font-medium" required>
+                        <option value="" disabled selected>Select a palette</option>
+                        <option value="neutral">Warm Neutrals</option>
+                        <option value="bold">Bold & Colourful</option>
+                        <option value="pastel">Soft Pastels</option>
+                        <option value="dramatic">Dark & Glamorous</option>
+                    </select>
+                </div>
+                <!-- Desired Mood -->
+                <div class="flex flex-col">
+                    <label for="look-mood" class="text-xs font-semibold text-brand-dark mb-2">How would you describe your desired mood?</label>
+                    <select id="look-mood" class="bg-brand-light border border-gray-200 p-4 outline-none focus:border-brand-teal transition-colors font-medium" required>
+                        <option value="" disabled selected>Select a mood</option>
+                        <option value="subtle">Subtle & Elegant</option>
+                        <option value="bold">Dramatic & Bold</option>
+                        <option value="playful">Playful & Artistic</option>
+                    </select>
+                </div>
+                <!-- Skin Tone (Optional) -->
+                <div class="flex flex-col">
+                    <label for="look-tone" class="text-xs font-semibold text-brand-dark mb-2">Your skin tone (optional)</label>
+                    <select id="look-tone" class="bg-brand-light border border-gray-200 p-4 outline-none focus:border-brand-teal transition-colors font-medium">
+                        <option value="" selected>I’m not sure</option>
+                        <option value="fair">Fair / Light</option>
+                        <option value="medium">Medium</option>
+                        <option value="deep">Deep / Rich</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button type="submit" id="look-submit" class="neon-btn px-8 py-4 bg-brand-dark text-white uppercase tracking-widest text-sm font-bold hover:bg-brand-teal transition-colors">Discover My Look</button>
+                </div>
+            </form>
+            <!-- Result Container -->
+            <div id="look-result" class="mt-12 hidden max-w-3xl mx-auto text-center"></div>
+        </div>
+    </section>
+
     <!-- Wow Factor Section Removed -->
 
     <!-- Contact Section -->
@@ -623,6 +683,106 @@
             });
         }
 
+        // --- 8. PERSONALIZED LOOK FINDER ---
+        // Map combinations of event type and mood to recommended makeup looks.  We avoid using
+        // region-specific terms and instead rely on descriptive categories.
+        const lookRecommendations = {
+            bridal: {
+                subtle: {
+                    title: 'Classic Bridal Glow',
+                    description: 'A timeless bridal look with soft neutrals and luminous skin that enhances your natural features.',
+                    img: '6882C705-B3F4-4AF0-ADE8-B8966F15E5E4.jpeg'
+                },
+                bold: {
+                    title: 'Glam Bridal Statement',
+                    description: 'An elevated bridal style featuring defined eyes, shimmering highlights and striking colours for a head-turning entrance.',
+                    img: '556D14C9-C7C2-4CEB-ABDC-3FD0C5C76861.jpeg'
+                },
+                playful: {
+                    title: 'Artistic Bridal Twist',
+                    description: 'A creative spin on bridal makeup with pops of colour and unique accents, perfect for the adventurous bride.',
+                    img: 'ACAC1E63-FDBD-48C7-81F9-4179F65AA4D7.jpeg'
+                }
+            },
+            party: {
+                subtle: {
+                    title: 'Elegant Party Look',
+                    description: 'Soft glam featuring subtle shimmer and refined tones, ideal for evening celebrations and cocktail parties.',
+                    img: '1E07C304-563F-4955-9514-FB370FE6CA32.jpeg'
+                },
+                bold: {
+                    title: 'Party Glam Vibes',
+                    description: 'Vibrant colours and dramatic contouring for a bold statement that commands attention on the dance floor.',
+                    img: 'F4E41AC3-6481-4EC0-9529-C4FBDAD8A0C3.jpeg'
+                },
+                playful: {
+                    title: 'Colourful Celebration',
+                    description: 'Playful hues and creative details to celebrate your unique style at any festive gathering.',
+                    img: 'D55304D8-5458-46E7-89A3-5A274F0BBF08.jpeg'
+                }
+            },
+            editorial: {
+                subtle: {
+                    title: 'Chic Editorial',
+                    description: 'Sophisticated and polished with modern finishes, perfect for fashion-forward shoots.',
+                    img: '11CB1188-6E0A-449E-AE5C-92DBD5FC00C6.jpeg'
+                },
+                bold: {
+                    title: 'Bold Editorial Artistry',
+                    description: 'Creative use of colours and textures to craft a striking editorial look that tells a story.',
+                    img: 'B70386A5-C385-440E-A151-223B10793CAB.jpeg'
+                },
+                playful: {
+                    title: 'Avant‑Garde Editorial',
+                    description: 'Fearless combinations of shapes and shades designed to stand out in magazines and portfolios.',
+                    img: 'AEB3BFEF-DDB3-409F-8053-F41CB6DEE610.jpeg'
+                }
+            },
+            casual: {
+                subtle: {
+                    title: 'Everyday Radiance',
+                    description: 'Natural tones and soft blending for a fresh and effortless daytime look.',
+                    img: '11CB1188-6E0A-449E-AE5C-92DBD5FC00C6.jpeg'
+                },
+                bold: {
+                    title: 'Day‑to‑Night Glam',
+                    description: 'A versatile look that transitions from daytime chic to evening glam with ease.',
+                    img: 'F4E41AC3-6481-4EC0-9529-C4FBDAD8A0C3.jpeg'
+                },
+                playful: {
+                    title: 'Creative Everyday',
+                    description: 'Fun pops of colour and artistic accents for when you want to express yourself on an ordinary day.',
+                    img: 'D55304D8-5458-46E7-89A3-5A274F0BBF08.jpeg'
+                }
+            }
+        };
+
+        const lookForm = document.getElementById('look-form');
+        const lookResultContainer = document.getElementById('look-result');
+        if (lookForm) {
+            lookForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const eventVal = document.getElementById('look-event').value;
+                const moodVal = document.getElementById('look-mood').value;
+                // Default to subtle if mood is not selected, though form requires selection
+                const selected = lookRecommendations[eventVal] && lookRecommendations[eventVal][moodVal];
+                if (selected) {
+                    const { title, description, img } = selected;
+                    // Build result markup
+                    lookResultContainer.innerHTML = `
+                        <div class="bg-white p-8 border border-brand-teal/10 shadow-lg section-fade">
+                            <h3 class="font-display text-4xl md:text-5xl text-brand-dark mb-4">${title}</h3>
+                            <img src="${img}" alt="${title}" class="mx-auto mb-6 w-full h-auto max-h-96 object-cover shadow-md" />
+                            <p class="text-gray-600 mb-6 max-w-2xl mx-auto">${description}</p>
+                            <a href="#contact" class="neon-btn inline-block px-8 py-4 bg-brand-dark text-white uppercase tracking-widest text-sm font-bold hover:bg-brand-teal transition-colors">Book This Look</a>
+                        </div>
+                    `;
+                    lookResultContainer.classList.remove('hidden');
+                    // Scroll to results
+                    lookResultContainer.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
         // --- 7. FUTURISTIC SCROLL ANIMATIONS ---
         // Animate sections into view only if the GSAP ScrollTrigger plugin is available.  This
         // conditional prevents runtime errors that can break the page and ensures that
