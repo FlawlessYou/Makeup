@@ -99,8 +99,15 @@
 
         /* Service Hover Effect */
         .service-bg-layer {
-            position: absolute; inset: 0; background-size: cover; background-position: center;
-            opacity: 0; transition: opacity 0.5s ease-in-out; z-index: 0;
+            position: absolute;
+            inset: 0;
+            /* Use contain instead of cover to display the entire photo without cropping */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 0;
         }
         .service-bg-layer.active { opacity: 0.2; }
         
@@ -145,7 +152,7 @@
     <!-- Custom cursor removed for accessibility -->
 
     <!-- WhatsApp -->
-    <a href="https://wa.me/447553489821" class="whatsapp-float hover-trigger" target="_blank">
+    <a href="https://wa.me/447771447915" class="whatsapp-float hover-trigger" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -631,7 +638,7 @@
     </section>
 
     <!-- Personalized Look Finder Quiz -->
-    <section id="look-finder" class="section-fade py-24 bg-brand-light">
+    <section id="look-finder" class="section-fade py-24 bg-brand-light font-sans">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
                 <span class="text-brand-teal text-xs uppercase tracking-[0.3em] font-bold">Find Your Look</span>
@@ -726,7 +733,7 @@
 
                 <div class="mt-12 flex flex-col md:flex-row justify-center gap-8 text-sm font-bold text-gray-600">
                     <a href="mailto:pavarnamakeover@gmail.com" class="hover:text-brand-teal flex items-center gap-2 justify-center"><i data-lucide="mail"></i> pavarnamakeover@gmail.com</a>
-                    <a href="tel:+447771447915" class="hover:text-brand-teal flex items-center gap-2 justify-center"><i data-lucide="phone"></i> +44 7553 489821</a>
+                    <a href="tel:+447771447915" class="hover:text-brand-teal flex items-center gap-2 justify-center"><i data-lucide="phone"></i> +44 7771 447915</a>
                 </div>
                 
                 <div class="mt-8 flex justify-center gap-6">
@@ -900,41 +907,41 @@
                 subtle: {
                     title: 'Classic Bridal Glow',
                     description: 'A timeless bridal look with soft neutrals and luminous skin that enhances your natural features.',
-                    img: '6882C705-B3F4-4AF0-ADE8-B8966F15E5E4.jpeg'
+                    img: 'Bridal.jpg'
                 },
                 bold: {
                     title: 'Glam Bridal Statement',
-                    description: 'An elevated bridal style featuring defined eyes, shimmering highlights and striking colours for a head-turning entrance.',
-                    img: '556D14C9-C7C2-4CEB-ABDC-3FD0C5C76861.jpeg'
+                    description: 'An elevated bridal style featuring defined eyes, shimmering highlights and striking colours for a head‑turning entrance.',
+                    img: 'Brides.jpg'
                 },
                 playful: {
                     title: 'Artistic Bridal Twist',
                     description: 'A creative spin on bridal makeup with pops of colour and unique accents, perfect for the adventurous bride.',
-                    img: 'ACAC1E63-FDBD-48C7-81F9-4179F65AA4D7.jpeg'
+                    img: 'BrideMaids.jpg'
                 }
             },
             party: {
                 subtle: {
                     title: 'Elegant Party Look',
                     description: 'Soft glam featuring subtle shimmer and refined tones, ideal for evening celebrations and cocktail parties.',
-                    img: '1E07C304-563F-4955-9514-FB370FE6CA32.jpeg'
+                    img: 'BabyShower.jpg'
                 },
                 bold: {
                     title: 'Party Glam Vibes',
                     description: 'Vibrant colours and dramatic contouring for a bold statement that commands attention on the dance floor.',
-                    img: 'F4E41AC3-6481-4EC0-9529-C4FBDAD8A0C3.jpeg'
+                    img: 'BrideMaids2.jpg'
                 },
                 playful: {
                     title: 'Colourful Celebration',
                     description: 'Playful hues and creative details to celebrate your unique style at any festive gathering.',
-                    img: 'D55304D8-5458-46E7-89A3-5A274F0BBF08.jpeg'
+                    img: '06A1C497-1644-4594-B5DC-B7F55DB06C53.jpeg'
                 }
             },
             editorial: {
                 subtle: {
                     title: 'Chic Editorial',
-                    description: 'Sophisticated and polished with modern finishes, perfect for fashion-forward shoots.',
-                    img: '11CB1188-6E0A-449E-AE5C-92DBD5FC00C6.jpeg'
+                    description: 'Sophisticated and polished with modern finishes, perfect for fashion‑forward shoots.',
+                    img: '556D14C9-C7C2-4CEB-ABDC-3FD0C5C76861.jpeg'
                 },
                 bold: {
                     title: 'Bold Editorial Artistry',
@@ -944,7 +951,7 @@
                 playful: {
                     title: 'Avant‑Garde Editorial',
                     description: 'Fearless combinations of shapes and shades designed to stand out in magazines and portfolios.',
-                    img: 'AEB3BFEF-DDB3-409F-8053-F41CB6DEE610.jpeg'
+                    img: '8A140F0C-3EEE-49E4-9F4E-C24878EE4D4D.jpeg'
                 }
             },
             casual: {
@@ -956,12 +963,12 @@
                 bold: {
                     title: 'Day‑to‑Night Glam',
                     description: 'A versatile look that transitions from daytime chic to evening glam with ease.',
-                    img: 'F4E41AC3-6481-4EC0-9529-C4FBDAD8A0C3.jpeg'
+                    img: '436E072F-FA9B-4A65-9BBB-326C0E0F0CF1.jpeg'
                 },
                 playful: {
                     title: 'Creative Everyday',
                     description: 'Fun pops of colour and artistic accents for when you want to express yourself on an ordinary day.',
-                    img: 'D55304D8-5458-46E7-89A3-5A274F0BBF08.jpeg'
+                    img: '58A05FB8-5718-49FC-B817-2DB8CB165375.jpeg'
                 }
             }
         };
@@ -979,9 +986,10 @@
                     const { title, description, img } = selected;
                     // Build result markup
                     lookResultContainer.innerHTML = `
-                        <div class="bg-white p-8 border border-brand-teal/10 shadow-lg section-fade">
+                        <div class="bg-white p-8 border border-brand-teal/10 shadow-lg section-fade font-sans">
                             <h3 class="font-display text-4xl md:text-5xl text-brand-dark mb-4">${title}</h3>
-                            <img src="${img}" alt="${title}" class="mx-auto mb-6 w-full h-auto max-h-96 object-cover shadow-md" />
+                            <!-- Use object-contain to ensure the full image is visible within the result card without cropping -->
+                            <img src="${img}" alt="${title}" class="mx-auto mb-6 w-full h-auto max-h-96 object-contain shadow-md" />
                             <p class="text-gray-600 mb-6 max-w-2xl mx-auto">${description}</p>
                             <a href="#contact" class="neon-btn inline-block px-8 py-4 bg-brand-dark text-white uppercase tracking-widest text-sm font-bold hover:bg-brand-teal transition-colors">Book This Look</a>
                         </div>
