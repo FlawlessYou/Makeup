@@ -225,12 +225,14 @@
             </div>
 
             <div class="comparison-container shadow-2xl hover-trigger" id="comp-slider">
-                <!-- After image shows the full colour transformation using one of Pavarna's real works -->
-                <div class="comparison-img" style="background-image: url('8A140F0C-3EEE-49E4-9F4E-C24878EE4D4D.jpeg');">
+                <!-- After image shows the full colour transformation using one of Pavarna's real works.  
+                     Updated to use the newly uploaded bridal photo. -->
+                <div class="comparison-img" style="background-image: url('Bridal.jpg');">
                     <span class="absolute top-6 right-6 bg-brand-teal/90 text-white px-4 py-1 text-xs uppercase tracking-widest font-bold backdrop-blur-md">After</span>
                 </div>
-                <!-- Before image uses the same photograph but displayed in grayscale to illustrate the impact of professional makeup -->
-                <div class="comparison-img img-before" id="img-overlay" style="background-image: url('8A140F0C-3EEE-49E4-9F4E-C24878EE4D4D.jpeg'); filter: grayscale(100%);">
+                <!-- Before image uses the same photograph but displayed in grayscale to illustrate the impact of professional makeup.  
+                     The same Bridal image is used for consistency. -->
+                <div class="comparison-img img-before" id="img-overlay" style="background-image: url('Bridal.jpg'); filter: grayscale(100%);">
                     <span class="absolute top-6 left-6 bg-black/50 text-white px-4 py-1 text-xs uppercase tracking-widest font-bold backdrop-blur-md">Before</span>
                 </div>
                 <div class="slider-handle" id="slider-handle">
@@ -244,13 +246,14 @@
     <!-- Immersive Service Menu (Curated Experiences) moved above the gallery -->
     <section id="services" class="section-fade py-32 bg-white relative overflow-hidden">
         <!-- Background Layers including new experiences -->
-        <div class="service-bg-layer" id="bg-bridal" style="background-image: url('https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
-        <div class="service-bg-layer" id="bg-party" style="background-image: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
-        <div class="service-bg-layer" id="bg-editorial" style="background-image: url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
-        <!-- New background layers referencing uploaded images for specialised services -->
-        <div class="service-bg-layer" id="bg-prepleat" style="background-image: url('6882C705-B3F4-4AF0-ADE8-B8966F15E5E4.jpeg')"></div>
-        <div class="service-bg-layer" id="bg-draping" style="background-image: url('06A1C497-1644-4594-B5DC-B7F55DB06C53.jpeg')"></div>
-        <div class="service-bg-layer" id="bg-hairstyle" style="background-image: url('D55304D8-5458-46E7-89A3-5A274F0BBF08.jpeg')"></div>
+        <!-- Updated background layers to use the client's own photos instead of stock images -->
+        <div class="service-bg-layer" id="bg-bridal" style="background-image: url('Bridal.jpg')"></div>
+        <div class="service-bg-layer" id="bg-party" style="background-image: url('BrideMaids.jpg')"></div>
+        <div class="service-bg-layer" id="bg-editorial" style="background-image: url('BrideMaids2.jpg')"></div>
+        <!-- Specialised services backgrounds from uploaded assets -->
+        <div class="service-bg-layer" id="bg-prepleat" style="background-image: url('BabyShower.jpg')"></div>
+        <div class="service-bg-layer" id="bg-draping" style="background-image: url('Brides.jpg')"></div>
+        <div class="service-bg-layer" id="bg-hairstyle" style="background-image: url('hairstyle.JPG')"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
@@ -482,6 +485,12 @@
 
                 <!-- Carousel Layout for Curated Moments -->
                 <div id="gallery-carousel" class="overflow-hidden relative mt-8">
+                    <button id="prev-btn" aria-label="Previous" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-brand-teal text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-brand-blue focus:outline-none">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-btn" aria-label="Next" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-brand-teal text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-brand-blue focus:outline-none">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                     <div id="carousel-track" class="flex transition-transform duration-700">
                         <!-- Slide 1 -->
                         <div class="min-w-full">
@@ -542,6 +551,26 @@
                         <!-- Slide 15 -->
                         <div class="min-w-full">
                             <img src="D1C13B78-325E-4744-ADB9-A5D223690F3A.jpeg" alt="Full length seated portrait of a bride in a blue sari with arms adorned in bangles" class="w-full h-auto object-cover" />
+                        </div>
+                        <!-- Newly added slides from recent uploads -->
+                        <div class="min-w-full">
+                            <!-- Newly added images with descriptive alt text -->
+                            <img src="BabyShower.jpg" alt="Woman wearing a floral saree and smiling during a celebration" class="w-full h-auto object-cover" />
+                        </div>
+                        <div class="min-w-full">
+                            <img src="Bridal.jpg" alt="Bride wearing a red saree and ornate gold jewellery during the ceremony" class="w-full h-auto object-cover" />
+                        </div>
+                        <div class="min-w-full">
+                            <img src="BrideMaids.jpg" alt="Bridesmaid walking down a red carpet in a bright pink and purple saree" class="w-full h-auto object-cover" />
+                        </div>
+                        <div class="min-w-full">
+                            <img src="BrideMaids2.jpg" alt="Bridesmaid posing gracefully in a pink and purple saree with henna-decorated hands" class="w-full h-auto object-cover" />
+                        </div>
+                        <div class="min-w-full">
+                            <img src="Brides.jpg" alt="Smiling bride adorned with a golden headpiece and traditional jewellery" class="w-full h-auto object-cover" />
+                        </div>
+                        <div class="min-w-full">
+                            <img src="hairstyle.JPG" alt="Back view of an intricate bridal hairstyle with braided hair and shimmering accessories" class="w-full h-auto object-cover" />
                         </div>
                     </div>
                 </div>
@@ -609,7 +638,7 @@
                 <h2 class="font-display text-5xl md:text-6xl text-brand-dark mt-3">Personalized <span class="italic text-brand-teal">Makeup Quiz</span></h2>
                 <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Answer a few quick questions to discover a curated makeup style that suits your occasion, palette and vibe.</p>
             </div>
-            <form id="look-form" class="space-y-8 max-w-3xl mx-auto bg-white p-8 border border-brand-teal/10 shadow-lg">
+            <form id="look-form" class="space-y-8 max-w-3xl mx-auto bg-white p-8 border border-brand-teal/10 shadow-lg font-sans">
                 <!-- Event Type -->
                 <div class="flex flex-col">
                     <label for="look-event" class="text-xs font-semibold text-brand-dark mb-2">What type of event are you preparing for?</label>
@@ -657,7 +686,8 @@
                 </div>
             </form>
             <!-- Result Container -->
-            <div id="look-result" class="mt-12 hidden max-w-3xl mx-auto text-center"></div>
+            <!-- The result container is styled with the sans-serif font to match the rest of the website -->
+            <div id="look-result" class="mt-12 hidden max-w-3xl mx-auto text-center font-sans"></div>
         </div>
     </section>
 
@@ -836,10 +866,30 @@
         if (carouselTrackElem) {
             let currentSlideIndex = 0;
             const totalSlides = carouselTrackElem.children.length;
-            setInterval(() => {
-                currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+
+            // Function to update the slide position
+            function updateCarousel(index) {
+                // Ensure index wraps within bounds
+                currentSlideIndex = (index + totalSlides) % totalSlides;
                 carouselTrackElem.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            }
+
+            // Automatic cycling every 5 seconds
+            setInterval(() => {
+                updateCarousel(currentSlideIndex + 1);
             }, 5000);
+
+            // Navigation controls
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    updateCarousel(currentSlideIndex - 1);
+                });
+                nextBtn.addEventListener('click', () => {
+                    updateCarousel(currentSlideIndex + 1);
+                });
+            }
         }
 
         // --- 8. PERSONALIZED LOOK FINDER ---
